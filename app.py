@@ -19,7 +19,7 @@ st.write("Upload a leaf image to identify possible diseases and get treatment su
 # ---------------------------------------------
 # 🔒 GEMINI API CONFIGURATION
 # ---------------------------------------------
-api_key = os.getenv("GOOGLE_API_KEY")  # ✅ Streamlit Secrets variable
+api_key = st.secrets.get("GOOGLE_API_KEY")  # ✅ Streamlit Secrets variable
 
 if not api_key:
     st.error("❌ No Gemini API key found. Please set GOOGLE_API_KEY in Streamlit Secrets.")
