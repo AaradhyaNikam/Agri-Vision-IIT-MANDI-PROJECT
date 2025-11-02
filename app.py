@@ -19,13 +19,15 @@ st.write("Upload a leaf image to identify possible diseases and get treatment su
 # ---------------------------------------------
 # 🔒 GEMINI API CONFIGURATION
 # ---------------------------------------------
-api_key = st.secrets.get("GOOGLE_API_KEY")  # ✅ Streamlit Secrets variable
-
-if not api_key:
-    st.error("❌ No Gemini API key found. Please set GOOGLE_API_KEY in Streamlit Secrets.")
+try:
+    api_key = st.secrets["GOOGLE_API_KEY"]
+except Exception as e:
+    st.error(f"❌ Gemini API key not found in Streamlit Secrets. Error: {e}")
     st.stop()
 
+import google.generativeai as genai
 genai.configure(api_key=api_key)
+
 
 # ---------------------------------------------
 # ⚙️ IMAGE UPLOAD
