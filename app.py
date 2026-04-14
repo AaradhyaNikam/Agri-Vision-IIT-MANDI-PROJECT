@@ -13,7 +13,11 @@ MODEL_PATH = "models/model.keras"
 # -----------------------------
 # 🔑 GEMINI API
 # -----------------------------
-api_key = os.getenv("GOOGLE_API_KEY")
+api_key = None
+try:
+    api_key = st.secrets["GOOGLE_API_KEY"]
+except (KeyError, FileNotFoundError):
+    api_key = os.getenv("GOOGLE_API_KEY")
 
 if api_key:
     genai.configure(api_key=api_key)
