@@ -16,3 +16,4 @@ ENV/
 # IDE
 .vscode/
 .idea/
+.streamlit/
