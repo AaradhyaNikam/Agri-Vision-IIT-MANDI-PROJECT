@@ -5,9 +5,10 @@ This repository contains a Jupyter notebook and a trained Keras model for classi
 Repository structure
 
 - `Code.ipynb` - Main Jupyter notebook with data processing, training/inference examples.
+- `app.py` - Streamlit Web Application interface for plant disease detection and Gemini AI chat.
+- `.streamlit/secrets.toml` - (You must create this) Local secrets configuration file for API keys.
 - `models/`
   - `model.keras` - Trained Keras model (HDF5/keras saved model format).
-  - `class_mapping.json` - Mapping from class indices to human-readable labels.
 - `requirements.txt` - Python package dependencies for running the notebook and inference.
 
 Setup (Windows PowerShell)
@@ -33,6 +34,25 @@ jupyter notebook
 ```
 
 2. Open `Code.ipynb` in your browser.
+
+Running the Web Application (Streamlit)
+
+This project features a fully functional Streamlit Web App that uses your trained Keras model for disease detection, and Google's Gemini AI to provide treatment and prevention advice.
+
+1. **Set up your Gemini API Key:**
+   Get an API key from [Google AI Studio](https://aistudio.google.com/). 
+   Create a folder named `.streamlit` in the root directory, create a file named `secrets.toml` inside it, and paste your API key:
+   ```toml
+   # .streamlit/secrets.toml
+   GOOGLE_API_KEY = "your-actual-api-key-here"
+   ```
+   *(Note: This folder is ignored by git to protect your keys.)*
+
+2. **Run the app:**
+   ```powershell
+   streamlit run app.py
+   ```
+   The app will automatically open in your default web browser.
 
 Quick inference example (Python snippet)
 
