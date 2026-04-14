@@ -22,7 +22,7 @@ except (KeyError, FileNotFoundError):
 if api_key:
     genai.configure(api_key=api_key)
     try:
-        gemini_model = genai.GenerativeModel("gemini-2.0-flash")
+        gemini_model = genai.GenerativeModel("gemini-2.5-flash")
     except:
         gemini_model = None
 else:
