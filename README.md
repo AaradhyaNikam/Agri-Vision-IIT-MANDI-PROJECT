@@ -56,7 +56,7 @@ It is recommended to run this project in a virtual environment. All terminal com
 
 powershell
 # 1. Clone the repository and navigate into it
-git clone [[https://github.com/your-username/jaaniv-krushi.git](https://github.com/AaradhyaNikam/Agri-Vision-IIT-MANDI-PROJECT)]
+git clone [[https://github.com/AaradhyaNikam/jaaniv-krushi.git](https://github.com/AaradhyaNikam/Agri-Vision-IIT-MANDI-PROJECT)]
 cd jaaniv-krushi
 
 # 2. Create and activate a virtual environment
