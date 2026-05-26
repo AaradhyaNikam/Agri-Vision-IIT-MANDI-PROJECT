@@ -69,7 +69,7 @@ pip install -r requirements.txt
 
 # 4. Launch the Web Application
 streamlit run app.py
-
+---
 Aaradhya Aashish Nikam 2nd-Year B.Tech Student, D.Y. Patil Engineering College, Pune * LinkedIn: www.linkedin.com/in/aaradhya-nikam-02a69b32a
 
 Email: nikamaaradhya97@gmail.com
