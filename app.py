@@ -118,7 +118,7 @@ if uploaded_file is not None:
     # TAB 1: Visual Inspection
     with tab1:
         st.markdown("#### Original Leaf Scan")
-        st.image(Image.open(temp_img_path), caption="Uploaded Image", use_column_width=True)
+        st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
         
         st.markdown("#### Top Class Probabilities")
         # Get top 3 predictions
