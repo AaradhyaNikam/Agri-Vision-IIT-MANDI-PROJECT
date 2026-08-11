@@ -1,91 +1,75 @@
-# Plant Village Classification Project
+# 🌱 Jaaniv Krushi: AI Crop Disease Detection System
 
-This repository contains a Jupyter notebook and a trained Keras model for classifying plant diseases using the PlantVillage dataset.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_on_Streamlit-success?style=for-the-badge)](https://iit-mandi-project-aaradhyaaashishnikam.streamlit.app/)
 
-Repository structure
+An **AI-powered agricultural diagnostic tool** that utilizes deep learning to classify plant diseases from the PlantVillage dataset and leverages Google's Gemini AI to provide actionable treatment and prevention strategies.
 
-- `Code.ipynb` - Main Jupyter notebook with data processing, training/inference examples.
-- `app.py` - Streamlit Web Application interface for plant disease detection and Gemini AI chat.
-- `.streamlit/secrets.toml` - (You must create this) Local secrets configuration file for API keys.
-- `models/`
-  - `model.keras` - Trained Keras model (HDF5/keras saved model format).
-- `requirements.txt` - Python package dependencies for running the notebook and inference.
+---
 
-Setup (Windows PowerShell)
+## 💡 Problem Statement
+Farmers frequently lack immediate access to agricultural experts to identify crop diseases, leading to reduced yields. **Jaaniv Krushi** bridges this gap by combining computer vision for real-time disease detection with generative AI to offer instant, localized, and organic treatment plans.
 
-1. Create and activate a virtual environment (recommended):
+---
 
-```powershell
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
-```
+## 🚀 Key Features & Architecture
+**Data Flow:** `Leaf Image Input` ➔ `Image Preprocessing` ➔ `Keras CNN Inference` ➔ `Disease Classification` ➔ `Gemini AI Prompting` ➔ `Streamlit UI`
 
-2. Upgrade pip and install dependencies:
+* **Deep Learning Vision:** Accurate image classification powered by a custom-trained Keras model.
+* **Generative AI Advice:** Integrates Google Gemini API to generate context-aware treatment steps and organic solutions.
+* **Interactive Dashboard:** A clean, user-friendly interface built entirely in Streamlit.
+* **Jupyter Research Environment:** Includes full model training, data processing, and inference research in `Code.ipynb`.
 
-```powershell
-python -m pip install --upgrade pip; pip install -r requirements.txt
-```
+---
 
-Running the notebook
+## 📸 System Previews
 
-1. Start Jupyter Lab/Notebook:
+### Disease Detection & Accuracy
+![Input](images/Input.png)
+![Accuracy](images/Accuracy.png)
 
-```powershell
-jupyter notebook
-```
+### Treatment Steps
+![Treatment Steps 1](images/Treatment%20Steps%201.png)
+![Treatment Steps 2](images/Treatment%20Steps%202.png)
 
-2. Open `Code.ipynb` in your browser.
+### Prevention Methods
+![Prevention Methods 1](images/Prevention%20Methods%201.png)
+![Prevention Methods 2](images/Prevention%20Methods%202.png)
 
-Running the Web Application (Streamlit)
+### Organic Solutions
+![Organic Solutions 1](images/Organic%20Solutions%201.png)
+![Organic Solutions 2](images/Organic%20Solutions%202.png)
 
-This project features a fully functional Streamlit Web App that uses your trained Keras model for disease detection, and Google's Gemini AI to provide treatment and prevention advice.
+---
 
-1. **Set up your Gemini API Key:**
-   Get an API key from [Google AI Studio](https://aistudio.google.com/). 
-   Create a folder named `.streamlit` in the root directory, create a file named `secrets.toml` inside it, and paste your API key:
-   ```toml
-   # .streamlit/secrets.toml
-   GOOGLE_API_KEY = "your-actual-api-key-here"
-   ```
-   *(Note: This folder is ignored by git to protect your keys.)*
+## 🛠️ Tech Stack
+**Language:** Python 3.12+  
+**Machine Learning:** TensorFlow, Keras, NumPy, PIL  
+**Generative AI:** Google Gemini AI API  
+**Frontend & Deployment:** Streamlit  
+**Environment:** Jupyter Notebook, Windows PowerShell  
 
-2. **Run the app:**
-   ```powershell
-   streamlit run app.py
-   ```
-   The app will automatically open in your default web browser.
+---
 
-Quick inference example (Python snippet)
+## ⚙️ Local Setup & Run (Windows PowerShell)
 
-```python
-import json
-from tensorflow import keras
-import numpy as np
-from PIL import Image
+It is recommended to run this project in a virtual environment. All terminal commands are combined below for easy setup.
 
-# Load model and class mapping
-model = keras.models.load_model('models/model.keras')
-with open('models/class_mapping.json','r') as f:
-    class_map = json.load(f)
+powershell
+# 1. Clone the repository and navigate into it
+git clone [[https://github.com/AaradhyaNikam/jaaniv-krushi.git](https://github.com/AaradhyaNikam/Agri-Vision-IIT-MANDI-PROJECT)]
+cd jaaniv-krushi
 
-# Preprocess function (adapt to how the model was trained)
-def preprocess_image(path, target_size=(224,224)):
-    img = Image.open(path).convert('RGB').resize(target_size)
-    arr = np.array(img)/255.0
-    return np.expand_dims(arr, axis=0)
+# 2. Create and activate a virtual environment
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 
-# Example usage
-img = preprocess_image('path/to/test_image.jpg')
-preds = model.predict(img)
-label_idx = int(np.argmax(preds, axis=1)[0])
-print('Predicted:', class_map.get(str(label_idx), label_idx))
-```
+# 3. Upgrade pip and install dependencies
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 
-Notes
+# 4. Launch the Web Application
+streamlit run app.py
+---
+Aaradhya Aashish Nikam 2nd-Year B.Tech Student, D.Y. Patil Engineering College, Pune * LinkedIn: www.linkedin.com/in/aaradhya-nikam-02a69b32a
 
-- The provided `preprocess_image` uses simple resizing and scaling to [0,1]; adjust normalization if the model expects different preprocessing (mean-subtraction, different input size, etc.).
-- If your model was saved in the newer TensorFlow SavedModel format, the path may differ.
-- For GPU acceleration, install the appropriate TensorFlow GPU package and drivers. See TensorFlow docs for guidance.
-
-Contact
-
-For questions or improvements, open an issue or contact the repo owner.
+Email: nikamaaradhya97@gmail.com
