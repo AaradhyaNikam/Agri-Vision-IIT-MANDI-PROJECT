@@ -144,7 +144,7 @@ if uploaded_file is not None:
                     pred_index=pred_idx
                 )
                 gradcam_img = overlay_gradcam(raw_img, heatmap)
-                st.image(gradcam_img.astype('uint8'), use_column_width=True)
+                st.image(gradcam_img.astype('uint8'), use_container_width=True)
         
         with col2:
             st.markdown("**LIME: Localized Superpixels**")
@@ -156,7 +156,7 @@ if uploaded_file is not None:
                     num_samples=500, # Using 500 to keep UI responsive
                     num_features=5
                 )
-                st.image(lime_img, use_column_width=True)
+                st.image(lime_img, use_container_width=True)
                 
         # Brief technical caption
         st.info(
