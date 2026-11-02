@@ -1,19 +1,92 @@
 # Google Cloud credentials
 gen-lang-client-0327394450-bb75c29f5afb.json
 
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyo
 
-# Environment
-.env
-.venv
-env/
+# Virtual environments
 venv/
-ENV/
+.venv/
+env/
 
-# IDE
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Dataset
+plantvillage dataset/
+dataset/
+datasets/
+
+# Model files
+models/*.keras
+models/*.h5
+*.pth
+*.pt
+
+# Temporary files
+temp_uploaded_image.jpg
+*.log
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE settings
 .vscode/
 .idea/
-.streamlit/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Private research and patent documents
+research_completion/
+research_finalization/
+
+# Local presentation working files
+presentation/*.pptx
+presentation/*.ppt
+
+# Temporary research outputs
+experiments/__pycache__/
+experiments/*.log
+
+# Large datasets
+*.zip
+*.rar
+
+# Academic documents and presentations
+presentation/
+research_completion/
+research_finalization/
+
+# Weekly academic reports
+weekly_reports/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Experimental results and generated outputs
+experiments/results/runs/
+experiments/results/logs/
+experiments/results/*.npy
+experiments/results/*.npz
+experiments/results/*.csv
+experiments/results/*.json
+experiments/results/*.txt
+
+# Generated experimental results
+experiments/results/
+
+# Ignore all generated experimental results
+experiments/results/
